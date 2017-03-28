@@ -1,0 +1,127 @@
+@import '../theme/config.scss';
+
+.mini {
+    .yt-admin-framework-sidebar {
+        width: 61px;
+        transition: all .3s;
+    }
+    .ant-menu-root {
+        transition: all 0.3s;
+        width: 60px;
+    }
+
+    .ant-menu-root > li > div {
+        transition: all .3s;
+        padding: 0px 16px 0 24px !important;
+        &:after {
+            right: 6px;
+            transition: all 0.3s;
+        }
+    }
+    .ant-menu-root > li > div {
+        overflow: hidden;
+    }
+    .ant-menu-root > li > div > span > span {
+        transition: all .3s;
+        opacity: 0;
+        width: 0;
+    }
+
+    .ant-menu-root > li.ant-menu-item {
+        transition: all .3s;
+        padding: 0px 16px 0 24px !important;
+    }
+    .ant-menu-root > li.ant-menu-item > a {
+        overflow: hidden;
+    }
+    .ant-menu-root > li.ant-menu-item > a > span {
+        transition: all .3s;
+        opacity: 0;
+        width: 0;
+    }
+
+}
+
+.ant-menu-root {
+    width: 200px;
+    transition: all .3s;
+}
+
+.ant-menu-root > li > div > span > span {
+    transition: all .3s;
+}
+
+.ant-menu-root > li.ant-menu-item > a > span {
+    transition: all .3s;
+}
+
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-item {
+    border-right: 1px solid transparent;
+}
+
+.ant-menu-inline,
+.ant-menu-vertical {
+    border-right: 1px solid transparent;
+}
+
+.ant-menu-item-selected > a {
+    overflow: hidden;
+}
+
+.yt-admin-framework-sidebar {
+    transition: all .3s;
+    width: 201px;
+    border-right: 1px solid #ddd;
+    background-color: #fff;
+    float: left;
+    margin-right: -200px;
+}
+
+.yt-admin-framework-sidebar .ant-menu-item {
+    transition: all .3s;
+    border-right: none;
+}
+
+.yt-admin-framework-sidebar .ant-menu-item-selected {
+    transition: .3s;
+    border-right: 0;
+    background-color: #eaf8fe;
+}
+
+.ant-menu-submenu-vertical {
+    z-index: 999;
+}
+
+.yt-admin-framework-sidebar {
+    .ant-menu {
+        .fa {
+            margin-right: 8px;
+            width: 12px;
+            height: 12px;
+            text-align: center;
+        }
+    }
+}
+
+.yt-admin-framework-sidebar .ant-menu-submenu-selected.ant-menu-submenu {
+    color: #108ee9;
+}
+
+@media (max-width: 767px) {
+    .mini {
+        .yt-admin-framework-sidebar {
+            overflow: hidden;
+            width: 0;
+            transition: all .3s;
+        }
+        .ant-menu-root {
+            transition: all 0.3s;
+            width: 0;
+        }
+        .ant-menu-root > li > div,
+        .ant-menu-root > li.ant-menu-item {
+            padding: 0 !important;
+        }
+    }
+}

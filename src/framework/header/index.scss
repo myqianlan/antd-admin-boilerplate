@@ -1,0 +1,73 @@
+@import '../theme/config.scss';
+
+.mini {
+    .yt-admin-framework-header-brand {
+        width: 60px;
+        transition: all .3s;
+    }
+}
+
+.yt-admin-framework-header {
+    background-color: $headerBgColor;
+    height: 50px;
+    overflow: hidden;
+}
+
+.yt-admin-framework-header-brand {
+    float: left;
+    height: 100%;
+    width: 200px;
+    transition: all .3s;
+    overflow: hidden;
+    text-align: center;
+    color: #fff;
+    line-height: 50px;
+    .brand-logo {
+        height: 30px;
+        margin-top: 10px;
+    }
+}
+
+.yt-admin-framework-header-sidebar-toggle {
+    float: left;
+    .toggle-icon {
+        line-height: 50px;
+        font-size: 20px;
+    }
+    a {
+        display: block;
+        padding: 0 10px;
+        color: #fff;
+        &:hover {
+            background-color: darken($headerBgColor, 5%);
+            color: #fff;
+        }
+    }
+}
+
+.yt-admin-framework-header-menu {
+    float: right;
+    .menu-item {
+        float: left;
+
+        a {
+            display: block;
+            padding: 0 10px;
+            line-height: 50px;
+            color: #fff;
+            &:hover {
+                background-color: darken($headerBgColor, 5%);
+                color: #fff;
+            }
+        }
+        .header-menu-text {
+            margin-left: 6px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .header-menu-text {
+        display: none !important
+    }
+}

@@ -1,0 +1,27 @@
+.info-card {
+    margin: 6px 6px 12px;
+
+    .reload-btn-simple {
+        border: none;
+    }
+
+    .info-card-error {
+        text-align: center;
+        .error-icon {
+            color: #F04134;
+            margin: 0 6px;
+        }
+        .reload-btn {
+            margin-left: 24px;
+        }
+    }
+
+    .ant-card-body {
+        overflow: auto;
+    }
+
+    .gutter-box{
+        padding: 5px 0;
+        //border-bottom: 1px solid #00A0E9;
+    }
+}

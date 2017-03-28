@@ -1,0 +1,32 @@
+/*table 上方功能栏*/
+.yt-admin-table-action {
+    padding: 12px 6px;
+    background: #f8f8f8;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.yt-admin-table-action > .ant-row {
+    position: relative;
+}
+
+.yt-admin-table-action .ant-form-item {
+    margin-bottom: 12px;
+}
+
+.yt-admin-table-action .ant-btn + .ant-btn {
+    margin-left: 8px;
+}
+
+/*modal中 form item最后一项*/
+.ant-modal .ant-form .ant-form-item:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    background-color: #ecf6fd;
+}
+
+.ant-select-dropdown-menu-item {
+    white-space: normal !important;
+}

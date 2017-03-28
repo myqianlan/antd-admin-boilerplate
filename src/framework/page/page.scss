@@ -1,0 +1,26 @@
+.yt-admin-framework-page {
+    position: relative;
+
+    .page-content {
+        position: relative;
+        min-height: 400px;
+        min-height: calc(100vh - 92px);
+        overflow: auto;
+    }
+}
+
+.yt-admin-breadcrumb {
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    right: 12px;
+    top: 0;
+}
+
+@media (max-width: 767px) {
+    .yt-admin-framework-page {
+        .page-content {
+        }
+    }
+}

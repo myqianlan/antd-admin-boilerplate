@@ -1,0 +1,27 @@
+{
+    "presets": [
+        "es2015",
+        "es2016",
+        "react",
+        "stage-0"
+    ],
+    "plugins": [
+        [
+            "transform-runtime",
+            {
+                "polyfill": false
+            }
+        ],
+        "add-module-exports",
+        "transform-decorators-legacy",
+        "lodash",
+        [
+            "import",
+            {
+                "libraryName": "antd",
+                "style": true
+            }
+        ]
+    ],
+    "comments": false
+}

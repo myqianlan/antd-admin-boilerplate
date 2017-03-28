@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!--[if lte IE 8]>
+    <script>
+        window.location.href='http://myqianlan.qiniudn.com/upgrade-your-browser.html?refer='+location.href;
+    </script>
+    <![endif]-->
+</head>
+<body>
+<div id="yt-app"></div>
+<% for (var asset in htmlWebpackPlugin.options.externalsAssets) { %>
+<script src="<%= htmlWebpackPlugin.options.externalsAssets[asset] %>"></script>
+<% } %>
+</body>
+</html>

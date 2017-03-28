@@ -1,0 +1,12 @@
+.yt-admin-page-title {
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 12px;
+    // display: inline-block;
+}
+
+@media (max-width: 767px) {
+    .yt-admin-page-title {
+    }
+}

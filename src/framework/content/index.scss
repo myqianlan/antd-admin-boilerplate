@@ -1,0 +1,18 @@
+.mini .yt-admin-framework-content {
+    transition: all .3s;
+    margin-left: 60px;
+}
+
+.yt-admin-framework-content {
+    transition: all .3s;
+    border-left: 1px solid #ddd;
+    margin-left: 200px;
+    padding: 0 12px;
+}
+
+@media (max-width: 767px) {
+    .mini .yt-admin-framework-content {
+        transition: all .3s;
+        margin-left: 0;
+    }
+}

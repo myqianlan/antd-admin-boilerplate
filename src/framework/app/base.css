@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   重设
+   ========================================================================== */
+/*// margin padding reset 部分取自一丝的 neat.css*/
+body, dl, dd, /* dt, 默认没边距 */
+ul, ol, /*li, 默认没边距 */
+h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
+form, fieldset, legend, input, textarea,
+p, blockquote, figure, hr, menu, dir,
+thead, tbody, tfoot /* th, td 默认 padding:1px */
+{
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+img {
+    width: auto \9;
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*// 更改盒模型规范*/
+/*// 优化字体渲染*/
+/*// http://www.feeldesignstudio.com/2013/05/text-rendering*/
+html {
+    box-sizing: border-box;
+    text-rendering: optimizelegibility;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*// 默认字体设置为雅黑(表单元素默认不继承字体，但normalize已经修正)*/
+/*// 设置标准参考自：*/
+/*// https://github.com/zenozeng/fonts.css*/
+body {
+    font-family: "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
+/*// IE bug fixed: th 不继承 text-align*/
+th {
+    text-align: inherit;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
