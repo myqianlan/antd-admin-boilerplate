@@ -15,7 +15,7 @@ var BUILD_ENV = process.env.BUILD_ENV
 var PUBLIC_PATH = {
     'dev': 'http://dev.yourhost.com/antd-admin/',
     'test': 'http://test.yourhost.com/antd-admin/',
-    'prod': 'http://prod.yourhost.com/antd-admin/',
+    'prod': 'http://myqianlan.com/antd-admin-boilerplate/dist/',
 }
 
 var webpackConfig = {
@@ -44,8 +44,7 @@ var webpackConfig = {
     cache: true,
     output: {
         path: path.resolve(__dirname, './dist'),
-        // publicPath: PUBLIC_PATH[BUILD_ENV],
-        publicPath: '/',
+        publicPath: PUBLIC_PATH[BUILD_ENV],
         filename: '[name].[chunkHash:8].js',
         chunkFilename: "[name].[chunkHash:8].js",
     },
