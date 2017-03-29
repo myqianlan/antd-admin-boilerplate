@@ -44,7 +44,8 @@ var webpackConfig = {
     cache: true,
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: PUBLIC_PATH[BUILD_ENV],
+        // publicPath: PUBLIC_PATH[BUILD_ENV],
+        publicPath: '/',
         filename: '[name].[chunkHash:8].js',
         chunkFilename: "[name].[chunkHash:8].js",
     },

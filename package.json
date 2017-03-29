@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --progress --config ./webpack.dev.config.js",
     "build-dev": "npm run clean && BUILD_ENV=dev webpack -p --progress --config ./webpack.build.config.js",
     "build-test": "npm run clean && BUILD_ENV=test webpack -p --progress --config ./webpack.build.config.js",
-    "build-prod": "npm run clean && BUILD_ENV=prod webpack -p --progress --config ./webpack.build.config.js",
+    "build-prod": "npm run clean && BUILD_ENV=prod webpack -p --progress --config ./webpack.build.config.js"
   },
   "keywords": [
     "antd",
