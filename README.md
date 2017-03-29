@@ -1,6 +1,12 @@
 # antd-admin-boilerplate
 以 antd 为基础组件构建的一套中后台管理系统的基本架构模板
 
+## 预览
+
+http://myqianlan.com/antd-admin-boilerplate/dist/#/login
+
+账户密码随便输入即可
+
 ## 目的
 
 使用 antd 和 react 来构建中后台系统，从上家公司开始，已经用来构建过三四个系统了，这个算是沉淀下来的一些东西，放出来给大家参考参考吧。
