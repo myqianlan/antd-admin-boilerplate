@@ -2,6 +2,7 @@ import React from 'react'
 import {Form, Input, Button, Checkbox, Spin, message} from 'antd'
 const FormItem = Form.Item;
 const createForm = Form.create;
+import DocumentTitle from 'react-document-title'
 import './index.scss'
 import {hashHistory} from 'react-router'
 import request from 'common/request/request.js'
@@ -83,8 +84,9 @@ class Login extends React.Component {
 
         return (
             <div className="login-page">
+                <DocumentTitle title="管理台"/>
                 <div className="login-box">
-                    <img src={logoImg} alt="云途交科" className="logo"/>
+                    <img src={logoImg} alt="logo" className="logo"/>
                     <Spin spinning={this.state.loading} size="large">
                         <Form className="login-form" onKeyPress={this.onKeyPressLogin}>
                             <FormItem>
