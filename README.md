@@ -1,6 +1,12 @@
 # antd-admin-boilerplate
 以 antd 为基础组件构建的一套中后台管理系统的基本架构模板
 
+## 预览
+
+http://myqianlan.com/antd-admin-boilerplate/dist/#/login
+
+账户密码随便输入即可
+
 ## 目的
 
 使用 antd 和 react 来构建中后台系统，从上家公司开始，已经用来构建过三四个系统了，这个算是沉淀下来的一些东西，放出来给大家参考参考吧。
@@ -20,15 +26,13 @@
 
 - node 4 LTS 版本
 - npm 建议 3+
-- webpack 1+
+- webpack 3
 
 > npm 建议使用cnpm, 通过设置 alias 的方式;(在私有npm还没搭建起来的时候)
 
 ## 开发
 
 ```bash
-
-    cpm install -g webpack webpack-dev-server
 
     cnpm install
 
