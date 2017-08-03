@@ -26,15 +26,13 @@ http://myqianlan.com/antd-admin-boilerplate/dist/#/login
 
 - node 4 LTS 版本
 - npm 建议 3+
-- webpack 1+
+- webpack 3
 
 > npm 建议使用cnpm, 通过设置 alias 的方式;(在私有npm还没搭建起来的时候)
 
 ## 开发
 
 ```bash
-
-    cpm install -g webpack webpack-dev-server
 
     cnpm install
 

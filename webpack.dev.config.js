@@ -1,13 +1,14 @@
-var path = require("path")
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+const path = require("path")
+const webpack = require('webpack')
+const autoprefixer = require('autoprefixer')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const AutoDllPlugin = require('autodll-webpack-plugin')
 
 // html-webpack-plugin插件，webpack中生成HTML的插件，
 // 具体可以去这里查看https://www.npmjs.com/package/html-webpack-plugin
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-var webpackConfig = {
+let webpackConfig = {
 
     devtool: 'cheap-module-eval-source-map',
     devServer: {
@@ -39,13 +40,9 @@ var webpackConfig = {
             // }
         }
     },
-    /*
-     * 指定node_modules目录, 如果项目中存在多个node_modules时,这个很重要.
-     * import js或者jsx文件时，可以忽略后缀名
-     * */
     resolve: {
-        modulesDirectories: ['node_modules', './node_modules'],
-        extensions: ['', '.js', '.jsx'],
+        modules: ['node_modules', './node_modules'],
+        extensions: ['.js', '.jsx'],
         unsafeCache: true,
         alias: {
             'component': path.resolve(__dirname, './src/component'),
@@ -54,12 +51,11 @@ var webpackConfig = {
         }
     },
     resolveLoader: {
-        modulesDirectories: ['node_modules', './node_modules']
+        modules: ['node_modules', './node_modules']
     },
 
     entry: {
         index: './src/entry/index.jsx',
-        vendor: ['jquery', 'moment', 'classnames', 'react', 'react-dom', 'react-router', 'antd']
     },
     cache: true,
     output: {
@@ -69,45 +65,50 @@ var webpackConfig = {
         chunkFilename: "[name].[chunkHash:8].js",
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                loader: 'babel',
+                loader: 'babel-loader',
             }, {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader',
-                // loader: ExtractTextPlugin.extract(['css', 'postcss'])
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                ]
             }, {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader',
-                // loader: ExtractTextPlugin.extract(['css', 'postcss', 'sass'])
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'sass-loader',
+                ]
             }, {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!postcss-loader!less-loader',
-                // loader: ExtractTextPlugin.extract(['css', 'postcss', 'less'])
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader',
+                ]
             }, {
                 test: /\.(png|jpg|jpeg|gif)$/i,
-                loader: 'url?name=[hash:8].[ext]&limit=8192',
+                loader: 'url-loader?name=[hash:8].[ext]&limit=8192',
             }, {
                 //html模板加载器，可以处理引用的静态资源，默认配置参数attrs=img:src，处理图片的src引用的资源
                 //比如你配置，attrs=img:src img:data-src就可以一并处理data-src引用的资源了，就像下面这样
                 test: /\.html$/,
-                loader: "html?attrs=img:src img:data-src"
+                loader: "html-loader?attrs=img:src img:data-src"
             }, {
                 //文件加载器，处理文件静态资源
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'file-loader?name=./fonts/[name].[ext]'
-            }, {
-                test: /\.json$/,
-                loader: 'json'
-            }
+            },
 
         ]
     },
-    postcss: [
-        autoprefixer({browsers: ['last 3 versions', 'ie >= 9',]})
-    ],
     externals: {
         // 'react': 'React',
         // 'react-dom': 'ReactDOM',
@@ -119,21 +120,20 @@ var webpackConfig = {
                 'NODE_ENV': '"development"'
             }
         }),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'windows.jQuery': 'jquery',
         }),
-        // new ExtractTextPlugin('[name].[contenthash:8].css', {
-        //     disable: false,
-        //     allChunks: true
-        // }),
+
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'manifest'],
             minChunks: Infinity,
         }),
-        new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+        // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
             filename: './index.html', //生成的html存放路径，相对于path
             template: './src/entry/index.html.ejs', //html模板路径
@@ -150,6 +150,15 @@ var webpackConfig = {
                 // react: '//cdn.bootcss.com/react/15.3.0/react.js',
                 // reactDOM: '//cdn.bootcss.com/react/15.3.0/react-dom.js',
                 // reactRouter: '//cdn.bootcss.com/react-router/2.6.1/ReactRouter.js'
+            }
+        }),
+        new AutoDllPlugin({
+            inject: true, // will inject the DLL bundle to index.html
+            debug: true,
+            filename: '[name].[hash:8].js',
+            path: './dll',
+            entry: {
+                vendor: ['jquery', 'moment', 'classnames', 'react', 'react-dom', 'react-router', 'antd']
             }
         })
     ]
