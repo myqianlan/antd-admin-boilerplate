@@ -36,7 +36,8 @@ let webpackConfig = {
 
     entry: {
         index: './src/entry/index.jsx',
-        vendor: ['jquery', 'moment', 'classnames', 'react', 'react-dom', 'react-router', 'antd']
+        antd: ['antd'],
+        vendor: ['jquery', 'moment', 'classnames', 'react', 'react-dom', 'react-router']
     },
     cache: true,
     output: {
