@@ -1,6 +1,10 @@
 # antd-admin-boilerplate
 以 antd 为基础组件构建的一套中后台管理系统的基本架构模板
 
+## 废弃
+
+建议使用官方 ant-design-pro
+
 ## 预览
 
 http://myqianlan.com/antd-admin-boilerplate/dist/#/login
